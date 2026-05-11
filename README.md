@@ -1,9 +1,15 @@
 # Heroes Vs Monsters
 
+## Présentation
+
 Bienvenue dans la forêt de « Shorewood », forêt enchantée du pays de « Stormwall ».
 Dans cette forêt, se livre un combat acharné entre les héros d’une part et les monstres d’autre part.
 
 Notre rôle est de donner vie à cette forêt au travers d’un programme écrit en console reprenant les concepts orientés objets vu au cours.
+
+## Exercices à faire en .Net 10
+
+### Assembly & Namespace
 
 Commençons par structurer un peu notre monde :
 
@@ -37,7 +43,7 @@ De (Répertoire Outils) :
 + Attributs :
   + Maximum (int)
 + Méthodes :
-  + Lancer (int Lancer())
+  + Lancer (int Lancer()) --> Random.Shared.Next(max) + 1
 
 Dans la classe Program.cs :
 
@@ -45,3 +51,49 @@ Dans la classe Program.cs :
 + Mettez 20 points de vie (PV) à la cible
 + Et faite en sorte que la source frappe la cible.
 + Assurez vous que la cible ait bien perdu des points de vie.
+
+---
+
+### Encapsulation & Propriétés
+
+---
+
+### Indexeurs
+
+---
+
+### Surcharges d'opérateurs
+
+---
+
+### Héritage
+
+---
+
+### Polymorphisme
+
+---
+
+### Interfaces
+
+---
+
+### Construction et Destruction d'objets
+
+---
+
+### Exceptions
+
+---
+
+### Génériques
+
+---
+
+### Délégués
+
+---
+
+### Evénements
+
+---
