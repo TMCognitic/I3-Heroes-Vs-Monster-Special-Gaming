@@ -35,15 +35,20 @@ Personnage (répertoire Unites) :
   + PV (PointDeVie) : int
 
 + Méthodes :
-  + Frappe (void Frappe(Personnage cible)).
-  Cette méthode lance un dé 4 faces (1 à 4) et retire les points de vie à la cible.
+  + Frappe (void Frappe(Personnage cible))._
+    Cette méthode lance un dé 4 faces (1 à 4) et retire les points de vie à la cible.
 
 De (Répertoire Outils) :
 
 + Attributs :
   + Maximum (int)
 + Méthodes :
-  + Lancer (int Lancer()) --> Random.Shared.Next(max) + 1
+  + Lancer (int Lancer())
+
+``` c#
+//Pour lancer un dé : retourne une valeur comprise entre 1 et max inclut
+Random.Shared.Next(max) + 1
+```
 
 Dans la classe Program.cs :
 
