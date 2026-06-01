@@ -1,4 +1,5 @@
-﻿using Models.Unites;
+﻿using Models.Core;
+using Models.Unites;
 
 namespace HeroesVsMonster
 {
@@ -26,6 +27,20 @@ namespace HeroesVsMonster
             if (!dave.EstEnVie)
             {
                 Console.WriteLine("Dave mort :'( ");
+            }
+
+            Plateau monde = new();
+            monde[5, 5] = "d";
+            monde[0, monde.Taille-1] = "l";
+
+            // Affichage du monde
+            for(int y = 0; y < monde.Taille; y++)
+            {
+                for(int x = 0; x < monde.Taille; x++)
+                {
+                    Console.Write((monde[y,x] ?? "_") + '\t');
+                }
+                Console.Write("\n");
             }
         }
     }

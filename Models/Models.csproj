@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Commun\" />
-    <Folder Include="Core\" />
     <Folder Include="Structures\" />
   </ItemGroup>
 
