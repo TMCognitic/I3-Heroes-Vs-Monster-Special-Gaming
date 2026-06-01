@@ -63,17 +63,23 @@ Dans la classe Program.cs :
 
 Dans la classe Personnage :
 
-- Limiter l'accès à l'attribut `PointDeVie` en lecture seule
-- Créer un propriété `EstEnVie` qui est vrai lorsque "PointDeVie > 0"
+- Limitez l'accès à l'attribut `PointDeVie` en lecture seule
+- Créez un propriété `EstEnVie` qui est vrai lorsque "PointDeVie > 0"
 
 Dans le Program.cs :
 
-- Ajouter un ligne `Console.WriteLine("Un arbre tombe !!!");`
-- Retirer 5 points de vie à un personnage
+- Ajoutez un ligne `Console.WriteLine("Un arbre tombe !!!");`
+- Retirez 5 points de vie à un personnage
 
 ---
 
 ### Indexeurs
+
+- Créez une classe `Plateau` qui contiendra un tableau de chaîne de caractères à 2 dimensions, nommé grille (qui sera un carré).
+- La taille du tableau est définie par une constante dans la classe Plateau
+- Dans `program.cs` créer une variable "monde" qui est une instance du plateau et ajouter des éléments sur la carte (ex: "d" pour dragon, "l" pour loup...) _(N'en mettez pas trop pour le moment! Attendez la fin du projet 😅)_
+- Afficher le tableau à 2 dimensions dans la console
+- BONUS: Changer le tableau de chaîne de caractères en énumération
 
 ---
 
