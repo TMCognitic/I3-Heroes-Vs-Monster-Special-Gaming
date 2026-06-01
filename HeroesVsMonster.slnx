@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="HeroesVsMonster/HeroesVsMonster.csproj" />
+  <Project Path="Models/Models.csproj" Id="b581a26f-5842-4765-82a7-2cd7aa806569" />
+</Solution>

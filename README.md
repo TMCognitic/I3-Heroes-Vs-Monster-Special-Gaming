@@ -13,53 +13,63 @@ Notre rôle est de donner vie à cette forêt au travers d’un programme écrit
 
 Commençons par structurer un peu notre monde :
 
-+ Créer un projet type « Console » nommé « HeroesVsMonster »
-+ Créer un projet type « Bibliothèque de classes » nommé « Models »
+- Créer un projet type « Console » nommé « HeroesVsMonster »
+- Créer un projet type « Bibliothèque de classes » nommé « Models »
 
 Dans le projet « Models », créer les répertoires :
 
-+ Commun
-+ Unites
-+ Core
-+ Structures
-+ Outils
+- Commun
+- Unites
+- Core
+- Structures
+- Outils
 
 Créer deux classes :
 
 Personnage (répertoire Unites) :
 
-+ Attributs :
-  + Nom : string,
-  + Force : int,
-  + Endurance : int,
-  + PV (PointDeVie) : int
+- Attributs :
+  - Nom : string,
+  - Force : int,
+  - Endurance : int,
+  - PV (PointDeVie) : int
 
-+ Méthodes :
-  + Frappe (void Frappe(Personnage cible))._
+- Méthodes :
+  - Frappe (void Frappe(Personnage cible)).\_
     Cette méthode lance un dé 4 faces (1 à 4) et retire les points de vie à la cible.
 
 De (Répertoire Outils) :
 
-+ Attributs :
-  + Maximum (int)
-+ Méthodes :
-  + Lancer (int Lancer())
+- Attributs :
+  - Maximum (int)
+- Méthodes :
+  - Lancer (int Lancer())
 
-``` c#
+```c#
 //Pour lancer un dé : retourne une valeur comprise entre 1 et max inclut
 Random.Shared.Next(max) + 1
 ```
 
 Dans la classe Program.cs :
 
-+ Créez deux instances de la classe personnage appelée source et cible.
-+ Mettez 20 points de vie (PV) à la cible
-+ Et faite en sorte que la source frappe la cible.
-+ Assurez vous que la cible ait bien perdu des points de vie.
+- Créez deux instances de la classe personnage appelée source et cible.
+- Mettez 20 points de vie (PV) à la cible
+- Et faite en sorte que la source frappe la cible.
+- Assurez vous que la cible ait bien perdu des points de vie.
 
 ---
 
 ### Encapsulation & Propriétés
+
+Dans la classe Personnage :
+
+- Limiter l'accès à l'attribut `PointDeVie` en lecture seule
+- Créer un propriété `EstEnVie` qui est vrai lorsque "PointDeVie > 0"
+
+Dans le Program.cs :
+
+- Ajouter un ligne `Console.WriteLine("Un arbre tombe !!!");`
+- Retirer 5 points de vie à un personnage
 
 ---
 
