@@ -88,10 +88,11 @@ Dans le Program.cs :
 ---
 
 ### Héritage
-Dans le projet « Models » : 
-- Créez des classes de personnages spécialiser : 
-  - Jouable : les humains, les elfes, les nains
-  - Monstre : les loups, les dragonnets, les bandits, les ours
+
+#### Dans le projet « Models » : 
+Créez des classes de personnages spécialiser : 
+- Jouable : les humains, les elfes, les nains
+- Monstre : les loups, les dragonnets, les bandits, les ours
 
 Le personnage jouable possede de l'or et du butin.  
 Chaque classe de personnage a ses bonus et malus : 
@@ -99,7 +100,7 @@ Chaque classe de personnage a ses bonus et malus :
 - Nain : Un bonus +2 en endurance
 - Elfe : Un bonus +3 en endurance et malus de -2 en force (minimum 1)
 
-Les montres peuvent posseder du butin :
+Les montres peuvent posseder du butin _(A initialiser dans dans programme.cs)_ :
 - Loup : Peau, Crocs, Viande.
 - Ours : Peau, Griffes, Viande.
 - Dragonnet : Peau, Ailes, Or.
@@ -111,17 +112,18 @@ Les monstres possede églament des bonus et malus :
 - Dragonnet : Bonus de protection (Armure) de 5 et bonus de force de +1
 - Bandit : Bonus +3 force et malus -2 en endurance
 
-Modifcation de la classe « Personnage »
-- La statistique "endurance" permet d'obtenir un bonus de point de vie
-- La statistique "force" permet d'obtenir un bonus de debat lors d'une attaque
+BONUS : Modifcation de la classe « Personnage »
+- La statistique "endurance" permet d'obtenir un bonus de resistance
+- La statistique "force" permet d'obtenir un bonus de dégats lors d'une attaque
 - Calcule du bonus : 
   - Inférieure à 10 : -1
   - Egale à 10 : 0
   - Suppérieur à 10 : +1
-  - Suppérieur à 13 : +2
+  - A partir de 13 : +2
 
 
-Dans la classe Program.cs, dans un premier temps, tester les interactions entres personnages :
+#### Dans la classe Program.cs
+Dans un premier temps, tester les interactions entres personnages :
 - Créer des héros et des monstres
 - Les héros doivents savoir : 
   - Attaquer un montre
