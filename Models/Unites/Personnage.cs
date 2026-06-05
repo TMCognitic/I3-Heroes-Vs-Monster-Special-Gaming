@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Models.Unites
 {
     /*
-     * public -> tout le monde peut y accèder
+     * public -> tout le monde peut y accéder
      * internal -> dans le même projet
      * protected -> uniquement la classe (ou ses enfants cf. héritage)
      * privated -> uniquement la classe
@@ -17,9 +17,9 @@ namespace Models.Unites
 
     public class Personnage
     {
-        public string Name { get; set; }
-        public int Force { get; private set; } = 10;
-        public int Endurance { get; private set; } = 10;
+        // Virtual sert à indiquer que cette propriété peut être réécrite dans les classes enfant
+        public virtual int Force { get; private set; } = 10;
+        public virtual int Endurance { get; private set; } = 10;
         public int PointDeVie { get; private set; } = 20;
 
         public bool EstEnVie
