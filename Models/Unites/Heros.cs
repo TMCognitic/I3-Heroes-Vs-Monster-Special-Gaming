@@ -19,5 +19,84 @@ namespace Models.Unites
             { "Repas", 0}
         };
 
+        public void SeReposer()
+        {
+            // TODO : Peut-être envisager des PV Max au dessus desquels on ne peut pas remonter, ici on va mettre 20 en dur
+
+            Console.WriteLine("🛌🏻 Votre héros se repose...");
+            // Si en récupérent 10, je passe au dessus des 20, on ajoute plutôt les PV manquants
+            if(PointDeVie + 10 > 20)
+            {
+                PointDeVie += (20 - PointDeVie);
+            }
+            // Sinon, on peut rajouter 10
+            else
+            {
+                PointDeVie += 10;
+            }
+            
+        }
+
+        public void Cuisiner()
+        {
+            // Vérifier s'il possède des viandes à cuisiner
+            if (Butin["Viande"] > 0)
+            {
+                Console.WriteLine("[Insérer musique de Monster Hunter] Vous avez fabriqué 1 x Repas !");
+                Butin["Viande"]--; //on retire une viande
+                Butin["Repas"]++; //on rajoute un repas
+            } else
+            {
+                Console.WriteLine("❌ Vous n'avez pas de viande dans votre inventaire");
+            }
+        }
+
+        public void Manger()
+        {
+            // On va vérifier si le héro possède des repas
+            if (Butin["Repas"] > 0)
+            {
+                Console.WriteLine("Votre héro se délecte d'un délicieux repas 🍖");
+                Butin["Repas"]--; //on retire le repas qu'il vient de manger
+
+                // TODO Peut être voir pour valeur MaxPV
+                // Il regagne le max qu'il peut ou 5 pv
+                if (PointDeVie + 5 > 20)
+                {
+                    PointDeVie += (20 - PointDeVie);
+                }
+                else
+                {
+                    PointDeVie += 5;
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Votre héro ne possède pas de repas préparé avec amour... il va devoir manger de la viande crue à ses risques et périls 🥩");
+                Butin["Viande"]--; //on enlève une viande de l'inventaire
+
+                // On génère une valeur entre -3 et 3 pour voir s'il s'intoxique avec la viande ou pas
+                int recuperation = Random.Shared.Next(-3, 4);
+                if (recuperation < 0)
+                {
+                    Console.WriteLine("Votre héro s'est intoxiqué, vous avez perdu des points de vie 🤢");
+                    PointDeVie += recuperation;
+                }
+                else
+                {
+                    // On regagne le max qu'on peut ou la récup
+                    if (PointDeVie + recuperation > 20)
+                    {
+                        PointDeVie += 20 - PointDeVie;
+                    }
+                    else
+                    {
+                        PointDeVie += recuperation;
+                    }
+                }
+            }
+        }
+
     }
 }

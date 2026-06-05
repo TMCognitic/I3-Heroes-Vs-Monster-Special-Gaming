@@ -167,13 +167,73 @@ namespace HeroesVsMonster
             Console.WriteLine($"  Endurance : {bandit.Endurance}");
             Console.WriteLine($"  PV : {bandit.PointDeVie}");
 
+            Console.WriteLine("\n > TEST BAGARRE ⚔️ ");
+            Console.WriteLine("L'humain frappe le loup");
+            humain.Frappe(loup);
 
+            Console.WriteLine("Le Loup");           
+            Console.WriteLine($"  PV : {loup.PointDeVie}");
 
+            Console.WriteLine("\nL'ours frappe l'humain");
+            ours.Frappe(humain);
+            Console.WriteLine("L'humain");
+            Console.WriteLine($"  PV : {humain.PointDeVie}");
 
+            humain.SeReposer();
+            Console.WriteLine("L'humain");
+            Console.WriteLine($"  PV : {humain.PointDeVie}");
 
+            Console.WriteLine("\n > Test cuisine 👨🏻‍🍳");
+            humain.Cuisiner(); // ne va pas marcher, pas de viande
+            nain.Butin["Viande"] = 2;
+            nain.Cuisiner(); // va fonctionner, le nain possède 2 viandes
 
+            Console.WriteLine("\n > Test manger (🍔 ou 🥩)");
+            humain.SubitDegats(10);
+            Console.WriteLine("L'humain");
+            Console.WriteLine($"  PV : {humain.PointDeVie}");
+            humain.Manger(); // pas de repas donc va manger de la viande crue
+            Console.WriteLine("L'humain");
+            Console.WriteLine($"  PV : {humain.PointDeVie}");
 
+            nain.SubitDegats(10);
+            Console.WriteLine("Le nain");
+            Console.WriteLine($"  PV : {nain.PointDeVie}");
+            nain.Manger(); // possède un repas cuisiné juste avant
+            Console.WriteLine("Le nain");
+            Console.WriteLine($"  PV : {nain.PointDeVie}");
+
+            Console.WriteLine("\n > Test Potion Bandit");
+            Console.WriteLine($"PV Bandit : { bandit.PointDeVie }");
+            nain.Frappe(bandit);
+            Console.WriteLine($"PV Bandit : {bandit.PointDeVie}");
+            nain.Frappe(bandit);
+            Console.WriteLine($"PV Bandit : {bandit.PointDeVie}");
+            nain.Frappe(bandit);
+            Console.WriteLine($"PV Bandit : {bandit.PointDeVie}");
+            nain.Frappe(bandit);
+            Console.WriteLine($"PV Bandit : {bandit.PointDeVie}");
+            nain.Frappe(bandit);
+            Console.WriteLine($"PV Bandit : {bandit.PointDeVie}");
             #endregion
+
+
+            // TODO : Polymorphisme
+            // C'est le concept de se dire qu'un Elfe est à la fois du Type Elfe, mais aussi du type Hero, mais aussi du Type Personnage
+            List<Personnage> listePerso = new List<Personnage>();
+            listePerso.Add(humain);
+            listePerso.Add(dragonnet);
+            Personnage persoHumain = new Humain();
+            // > Ceci s'appelle le casting "implicite" (Un humain est implicitement un personnage
+
+            //persoHumain.SeReposer(); //impossible, persoHumain est une variable de Type Personnage et SeReposer() c'est que pour les Heros
+            ((Heros)persoHumain).SeReposer();
+            // > Ceci s'appelle le casting "explicite" (Vous indiquez explicitement que c'est un héro dans la variable persoHumain
+            // Vous aurez aussi accès à ce genre de comparaisons
+            if(persoHumain is Heros)
+            {
+                
+            }
         }
     }
 }

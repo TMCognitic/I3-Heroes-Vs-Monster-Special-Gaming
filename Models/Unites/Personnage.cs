@@ -20,7 +20,7 @@ namespace Models.Unites
         // Virtual sert à indiquer que cette propriété peut être réécrite dans les classes enfant
         public virtual int Force { get; private set; } = 10;
         public virtual int Endurance { get; private set; } = 10;
-        public int PointDeVie { get; private set; } = 20;
+        public int PointDeVie { get; protected set; } = 20;
 
         public bool EstEnVie
         {
@@ -36,18 +36,43 @@ namespace Models.Unites
             De de = new De();
             de.Maximum = 4;
 
-            int degats = de.Lancer();
-            cible.PointDeVie -= degats;
+            // Les dégats sont égal au lancer + le bonus basé sur la force de celui qui tape
+            int degats = de.Lancer() + CalculBonus(Force);
+
+            cible.SubitDegats(degats);
         }
 
-        public void SubitDegats(int degats)
+        public virtual void SubitDegats(int degats)
         {
-            if (degats >= 0)
+            int bonus = CalculBonus(Endurance);
+            // On vérifie si les dégats sont positifs et si les dégats - le bonus sont positifs pour ne pas rajouter des PV à notre personnage
+            if (degats >= 0 && degats - bonus >= 0)
             {
-                PointDeVie -= degats;
+                // Le personnage qui reçoit des dégats, recevra les dégats - le bonus en endurance
+                PointDeVie -= degats - bonus;
             }
 
             // TODO error
+        }
+
+        public int CalculBonus(int stat)
+        {
+            if(stat < 10)
+            {
+                return -1;
+            }
+            else if(stat == 10)
+            {
+                return 0;
+            }
+            else if(stat > 10 && stat < 13)
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
         }
     }
 }
