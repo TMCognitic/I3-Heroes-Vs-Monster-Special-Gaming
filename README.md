@@ -163,3 +163,12 @@ Dans un premier temps, tester les interactions entre les personnages :
 ### Evénements
 
 ---
+
+<hr style="height:50px">
+
+# Liens vers les Démos
+## Namespace, Encaplusations, Indexeurs
+[Demo Phil](https://github.com/phil-bstorm/C_sharp_POO-i3-gamedev6)
+
+## Héritage, Indexeurs
+[Demo Aurélien](https://github.com/FormCours/I3_Game__POO__Demo)
