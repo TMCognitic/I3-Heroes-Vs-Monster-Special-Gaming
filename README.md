@@ -5,7 +5,7 @@
 Bienvenue dans la forêt de « Shorewood », forêt enchantée du pays de « Stormwall ».
 Dans cette forêt, se livre un combat acharné entre les héros d’une part et les monstres d’autre part.
 
-Notre rôle est de donner vie à cette forêt au travers d’un programme écrit en console reprenant les concepts orientés objets vu au cours.
+Notre rôle est de donner vie à cette forêt au travers d’un programme écrit en console reprenant les concepts orientés objets vus au cours.
 
 ## Exercices à faire en .Net 10
 
@@ -46,15 +46,15 @@ De (Répertoire Outils) :
   - Lancer (int Lancer())
 
 ```c#
-//Pour lancer un dé : retourne une valeur comprise entre 1 et max inclut
+//Pour lancer un dé : retourne une valeur comprise entre 1 et max inclus
 Random.Shared.Next(max) + 1
 ```
 
 Dans la classe Program.cs :
 
-- Créez deux instances de la classe personnage appelée source et cible.
+- Créez deux instances de la classe personnage appelées source et cible.
 - Mettez 20 points de vie (PV) à la cible
-- Et faite en sorte que la source frappe la cible.
+- Faites en sorte que la source frappe la cible.
 - Assurez vous que la cible ait bien perdu des points de vie.
 
 ---
@@ -64,7 +64,7 @@ Dans la classe Program.cs :
 Dans la classe Personnage :
 
 - Limitez l'accès à l'attribut `PointDeVie` en lecture seule
-- Créez un propriété `EstEnVie` qui est vrai lorsque "PointDeVie > 0"
+- Créez une propriété `EstEnVie` qui est vraie lorsque "PointDeVie > 0"
 
 Dans le Program.cs :
 
@@ -75,11 +75,11 @@ Dans le Program.cs :
 
 ### Indexeurs
 
-- Créez une classe `Plateau` qui contiendra un tableau de chaîne de caractères à 2 dimensions, nommé grille (qui sera un carré).
+- Créez une classe `Plateau` qui contiendra un tableau de chaînes de caractères à 2 dimensions, nommé grille (qui sera un carré).
 - La taille du tableau est définie par une constante dans la classe Plateau
-- Dans `program.cs` créer une variable "monde" qui est une instance du plateau et ajouter des éléments sur la carte (ex: "d" pour dragonnet, "l" pour loup...) _(N'en mettez pas trop pour le moment! Attendez la fin du projet 😅)_
-- Afficher le tableau à 2 dimensions dans la console
-- BONUS: Changer le tableau de chaîne de caractères en énumération
+- Dans `program.cs` créez une variable "monde" qui est une instance du plateau et ajoutez des éléments sur la carte (ex: "d" pour dragonnet, "l" pour loup...) _(N'en mettez pas trop pour le moment! Attendez la fin du projet 😅)_
+- Affichez le tableau à 2 dimensions dans la console
+- BONUS: Changez le tableau de chaînes de caractères en énumération
 
 ---
 
@@ -90,43 +90,43 @@ Dans le Program.cs :
 ### Héritage
 
 #### Dans le projet « Models » : 
-Créez des classes de personnages spécialiser : 
+Créez des classes de personnages spécialisées : 
 - Jouable : les humains, les elfes, les nains
 - Monstre : les loups, les dragonnets, les bandits, les ours
 
-Le personnage jouable possede de l'or et du butin.  
+Le personnage jouable possède de l'or et du butin.  
 Chaque classe de personnage a ses bonus et malus : 
 - Humain : Un bonus +1 en force et +1 en endurance
 - Nain : Un bonus +2 en endurance
 - Elfe : Un bonus +3 en endurance et malus de -2 en force (minimum 1)
 
-Les montres peuvent posseder du butin _(A initialiser dans dans programme.cs)_ :
+Les montres peuvent posséder du butin _(A initialiser dans dans programme.cs)_ :
 - Loup : Peau, Crocs, Viande.
 - Ours : Peau, Griffes, Viande.
 - Dragonnet : Peau, Ailes, Or.
-- Bandit :Or, Repas, tout le butin d'autre monstre.
+- Bandit : Or, Repas, tout le butin des autres monstres.
 
-Les monstres possede églament des bonus et malus : 
+Les monstres possèdent également des bonus et malus : 
 - Loup : Pas de bonus, ni de malus.
 - Ours : Bonus de +2 en force
 - Dragonnet : Bonus de protection (Armure) de 5 et bonus de force de +1
 - Bandit : Bonus +3 force et malus -2 en endurance
 
-BONUS : Modifcation de la classe « Personnage »
-- La statistique "endurance" permet d'obtenir un bonus de resistance
+BONUS : Modification de la classe « Personnage »
+- La statistique "endurance" permet d'obtenir un bonus de résistance
 - La statistique "force" permet d'obtenir un bonus de dégats lors d'une attaque
-- Calcule du bonus : 
+- Calcul du bonus : 
   - Inférieure à 10 : -1
-  - Egale à 10 : 0
-  - Suppérieur à 10 : +1
-  - A partir de 13 : +2
+  - Égale à 10 : 0
+  - Supérieure à 10 : +1
+  - À partir de 13 : +2
 
 
 #### Dans la classe Program.cs
-Dans un premier temps, tester les interactions entres personnages :
-- Créer des héros et des monstres
-- Les héros doivents savoir : 
-  - Attaquer un montre
+Dans un premier temps, tester les interactions entre les personnages :
+- Créez des héros et des monstres
+- Les héros doivent savoir : 
+  - Attaquer un monstre
   - Se reposer (Gain de 10 pdv)
   - Cuisiner (Transforme la viande en repas)
   - Manger (Gain de 5 pdv pour un repas. Gain de -3 à 3 pour de la viande crue)

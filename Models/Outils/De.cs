@@ -12,10 +12,10 @@ namespace Models.Outils
 
         public int Lancer()
         {
-            //Pour lancer un dé : retourne une valeur comprise entre 1 et max inclut
+            //Pour lancer un dé : retourne une valeur comprise entre 1 et max inclus
             return Random.Shared.Next(this.Maximum) + 1;
-            // le mot clé "this" représente l'instance de la class
-            // il n'est pas obligatoire pour utiliser les attributs ou méthode de cette class
+            // le mot clé "this" représente l'instance de la classe
+            // il n'est pas obligatoire pour utiliser les attributs ou méthodes de cette classs
         }
     }
 }
