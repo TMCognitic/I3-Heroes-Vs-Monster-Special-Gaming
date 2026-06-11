@@ -139,19 +139,19 @@ Dans un premier temps, tester les interactions entre les personnages :
 ### Construction d'objet (Intro)
 Définir sur toutes les classes (Sauf « Plateau ») du projet « Models » des constructeurs :
 - De \
-  _Définir le nombre de face et y acceder uniquement en lecture._
+  _Le nombre de face doit être fourni via le constructeur et la propriété passe en lecture seul._
 
 - Les classes personnages (Nain, Humain, Elfe, Loup, Dragonnet, Bandit, Ours) \
-  _Définir les stats (force / endurance) seront defini aleatoirement à la création._
+  _La valeur des stats (force / endurance) seront defini aleatoirement à la création._
 
   - Les personnages jouables \
-    _Il est necessaire de fournir le nom du personnage._
+    _Le nom du personnage doit être fourni via le constructeur._
 
   - Les monstres \
     _Le nombre de chaque butin est généré aleatoirement._
 
 Régle de génération des statistiques 
-- Premier temps : Générer une valeurs aleatoire entre 5 et 10
+- Premier temps : Définir la force et l'endurance à la valeur 13 (Dans le ctor)
 - Version final : Simuler un lancer de 4 Dé 6, et prendre les 3 meilleurs
 
 Régle de génération du nombre de butin
