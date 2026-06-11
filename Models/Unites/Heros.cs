@@ -12,8 +12,9 @@ namespace Models.Unites
         // - Les autres clefs seront ajouter dynamiquement lors du loot
         public Dictionary<string, int> Butin { get; set; } = new()
         {
-            { "Or", 0},
-            { "Repas", 0}
+            { "Or", 0 },
+            { "Repas", 0 },
+            { "Viande", 0 }
         };
 
         public void Loot(Monstre cible)
