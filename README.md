@@ -133,7 +133,11 @@ Dans un premier temps, tester les interactions entre les personnages :
   - Récuperer le butin d'un monstre
 - Les monstres peuvent : 
   - Attaquer le héro
-  - Boire une potion de soin (Bandit uniquement : 1 chance sur 100 quand il a moins de 5 pdv)
+  - Boire une potion de soin (Bandit uniquement : 11 chance sur 100 quand il a moins de 5 pdv)
+---
+
+### Construction d'objet (Intro)
+
 ---
 
 ### Polymorphisme

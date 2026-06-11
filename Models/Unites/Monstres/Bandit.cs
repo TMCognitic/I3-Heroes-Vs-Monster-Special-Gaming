@@ -12,18 +12,8 @@ namespace Models.Unites.Monstres
         public override int Endurance {
             get
             {
-                if (base.Endurance - 2 >= 1)
-                {
-                    return base.Endurance - 2;
-                }
-                else if (base.Endurance - 1 >= 1)
-                {
-                    return base.Endurance - 1;
-                }
-                else
-                {
-                    return base.Endurance;
-                }
+                int tempEndurance = base.Endurance - 2;
+                return (tempEndurance > 1) ? tempEndurance : 1; 
             }
         }
 
@@ -37,9 +27,9 @@ namespace Models.Unites.Monstres
                 De De100 = new();
                 De100.Maximum = 100;
 
-                if(De100.Lancer() == 50)
+                if(De100.Lancer() == 11)
                 {
-                    Console.WriteLine("... et récupère 10 PV");
+                    Console.WriteLine("... et récupère 5 PV");
                     PointDeVie += 5;
 
                 }

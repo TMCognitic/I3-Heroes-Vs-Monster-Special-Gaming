@@ -11,22 +11,20 @@ namespace Models.Unites.Jouables
         {
             get
             {
-                // On vérifie si en enlevant 2, on ne descend pas en dessous de 1
-                if(base.Force - 2 >= 1)
+                int tempForce = base.Force - 2;
+
+                if (tempForce > 1)
                 {
-                    // Si c'est ok, on enlève 2 en endurance
-                    return base.Force - 2;
+                    return tempForce;
                 }
-                // Sinon, on va vérifier si en enlevant un, on ne descend pas en dessous de 1
-                else if(base.Force - 1 >= 1)
-                {
-                    return base.Force - 1;
-                }
-                // Sinon, il n'a que 1 en Force, il est déjà assez nul comme ça
                 else
                 {
-                    return base.Force;
+                    return 1;
                 }
+
+                // Ecriture alternative avec un ternaire
+                return (tempForce > 1) ? tempForce : 1;
+                return Math.Max(tempForce, 1);
             }
         }
     }

@@ -55,7 +55,7 @@ namespace Models.Unites
             // TODO error
         }
 
-        public int CalculBonus(int stat)
+        protected int CalculBonus(int stat)
         {
             if(stat < 10)
             {

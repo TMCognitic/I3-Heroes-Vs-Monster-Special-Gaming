@@ -8,16 +8,48 @@ namespace Models.Unites
         public string Nom { get; set; }
 
         // On va créer un dictionnaire pour les Butins avec comme clef le type de butin et comme valeur 0 pour le héro, puisqu'il commence avec aucun butin
+        // - Initialisation avec uniquement les clefs "obligatoire" (or, repas)
+        // - Les autres clefs seront ajouter dynamiquement lors du loot
         public Dictionary<string, int> Butin { get; set; } = new()
         {
             { "Or", 0},
-            { "Peau", 0},
-            { "Griffes", 0},
-            { "Crocs", 0},
-            { "Viande", 0},
-            { "Aile", 0},
             { "Repas", 0}
         };
+
+        public void Loot(Monstre cible)
+        {
+            // Test de garde
+            if(cible.EstEnVie)
+            {
+                // TODO Erreur : la créature doit être mouru
+                return;
+            }
+
+            // Rappel : Vous ne pouvez pas modifier la collection dans une boucle "foreach"
+            // On parcours les butins
+            while(cible.HasLoot)
+            {
+                // Le butin qu'on récupere
+                KeyValuePair<string, int> butin = cible.Butin.First();
+                string typeButin = butin.Key;
+                int valeurButin = butin.Value;
+
+                // Rappel : le mot clef "this" represente l'instance actuelle
+                if(this.Butin.ContainsKey(typeButin))
+                {
+                    // Si on possede deja le type de butin, on augemente sa valeur
+                    this.Butin[typeButin] += valeurButin;
+                }
+                else
+                {
+                    // Si on ne l'a pas, on l'ajoute
+                    this.Butin.Add(typeButin, valeurButin);
+                }
+
+                // Suppression du butin sur la cible
+                cible.Butin.Remove(typeButin);
+            }
+        }
 
         public void SeReposer()
         {
@@ -25,7 +57,7 @@ namespace Models.Unites
 
             Console.WriteLine("🛌🏻 Votre héros se repose...");
             // Si en récupérent 10, je passe au dessus des 20, on ajoute plutôt les PV manquants
-            if(PointDeVie + 10 > 20)
+            if (PointDeVie + 10 > 20)
             {
                 PointDeVie += (20 - PointDeVie);
             }
@@ -34,7 +66,7 @@ namespace Models.Unites
             {
                 PointDeVie += 10;
             }
-            
+
         }
 
         public void Cuisiner()
@@ -45,7 +77,8 @@ namespace Models.Unites
                 Console.WriteLine("[Insérer musique de Monster Hunter] Vous avez fabriqué 1 x Repas !");
                 Butin["Viande"]--; //on retire une viande
                 Butin["Repas"]++; //on rajoute un repas
-            } else
+            }
+            else
             {
                 Console.WriteLine("❌ Vous n'avez pas de viande dans votre inventaire");
             }
