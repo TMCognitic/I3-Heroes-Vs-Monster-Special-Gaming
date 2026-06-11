@@ -137,6 +137,33 @@ Dans un premier temps, tester les interactions entre les personnages :
 ---
 
 ### Construction d'objet (Intro)
+Définir sur toutes les classes (Sauf « Plateau ») du projet « Models » des constructeurs :
+- De \
+  _Définir le nombre de face et y acceder uniquement en lecture._
+
+- Les classes personnages (Nain, Humain, Elfe, Loup, Dragonnet, Bandit, Ours) \
+  _Définir les stats (force / endurance) seront defini aleatoirement à la création._
+
+  - Les personnages jouables \
+    _Il est necessaire de fournir le nom du personnage._
+
+  - Les monstres \
+    _Le nombre de chaque butin est généré aleatoirement._
+
+Régle de génération des statistiques 
+- Premier temps : Générer une valeurs aleatoire entre 5 et 10
+- Version final : Simuler un lancer de 4 Dé 6, et prendre les 3 meilleurs
+
+Régle de génération du nombre de butin
+- Peau : Dé 3
+- Crocs : Dé 3 - 1
+- Griffes : Dé 4 + 1
+- Ailes : 0 ou 2
+- Viande : Dé 6
+- Repas : Dé 3
+- Or : Dé 100 
+
+NB : Adapté ou commenté le code de test des classes dans program.cs
 
 ---
 
