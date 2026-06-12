@@ -33,8 +33,7 @@ namespace Models.Unites
         public void Frappe(Personnage cible)
         {
             // lancer un dé à 4 faces (1 à 4) et retirer les PVs
-            De de = new De();
-            de.Maximum = 4;
+            De de = new De(4);
 
             // Les dégats sont égal au lancer + le bonus basé sur la force de celui qui tape
             int degats = de.Lancer() + CalculBonus(Force);

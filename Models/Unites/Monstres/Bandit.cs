@@ -24,8 +24,7 @@ namespace Models.Unites.Monstres
             if(PointDeVie < 5)
             {
                 Console.WriteLine("🧪 Le bandit tente de prendre une potion...");
-                De De100 = new();
-                De100.Maximum = 100;
+                De De100 = new(100);
 
                 if(De100.Lancer() == 11)
                 {
