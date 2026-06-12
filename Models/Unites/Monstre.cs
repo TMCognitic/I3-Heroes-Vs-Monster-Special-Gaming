@@ -14,6 +14,11 @@ namespace Models.Unites
         }
         // public bool HasLoot => Butin.Any();
 
+        // Constructeur qui initialise le butin des monstres
+        public Monstre()
+        {
+            _InternalButin = new();
+        }
 
         // Gestion du butin
         // - (Privé) Dico avec les méthodes de mutations (Add, Remove, ...)
@@ -46,6 +51,9 @@ namespace Models.Unites
         // - (Protected) 
         protected void AjouterButin(string nomDuButin, int quantite)
         {
+            // Test de garde pour eviter d'avoir 0 d'un butin
+            if(quantite <=0) return;
+
             if(_InternalButin.ContainsKey(nomDuButin))
             {
                 // Modifie la valeur si la clef est présente
