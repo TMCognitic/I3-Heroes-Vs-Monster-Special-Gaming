@@ -1,4 +1,5 @@
 ﻿using Models.Outils;
+using Models.Unites.Monstres;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,14 @@ namespace Models.Unites
         }
 
 
+        // Set de dé du personnage
+        // - Le « private protected » permet d'utiliser la classe "De" qui internal dans l'heritage
+        private protected De De3 { get; init; }
+        private protected De De4 { get; init; }
+        private protected De De6 { get; init; }
+        private protected De De100 { get; init; }
+
+
         // Constructeur qui initialise les stats
         public Personnage()
         {
@@ -45,16 +54,19 @@ namespace Models.Unites
 
             // Comme "PointDeVieMax" se base endurance, celui-ci doit être initialiser après "Endurance"
             PointDeVie = PointDeVieMax;
+
+            // Initialisation des dés
+            De3 = new De(3);
+            De4 = new De(4);
+            De6 = new De(6);
+            De100 = new De(100);
         }
 
 
         public void Frappe(Personnage cible)
         {
-            // lancer un dé à 4 faces (1 à 4) et retirer les PVs
-            De de = new De(4);
-
             // Les dégats sont égal au lancer + le bonus basé sur la force de celui qui tape
-            int degats = de.Lancer() + CalculBonus(Force);
+            int degats = De4.Lancer() + CalculBonus(Force);
 
             cible.SubitDegats(degats);
         }

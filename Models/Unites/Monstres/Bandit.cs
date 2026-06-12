@@ -17,6 +17,33 @@ namespace Models.Unites.Monstres
             }
         }
 
+        public Bandit()
+        {
+            this.AjouterButin("Or", De100.Lancer());
+            this.AjouterButin("Repas", De3.Lancer());
+            this.AjouterButin("Viande", De6.Lancer());
+
+            if(De100.Lancer() <= 50)
+            {
+                // Le bandit a loot un loup
+                this.AjouterButin("Peau", De3.Lancer());
+                this.AjouterButin("Crocs", De3.Lancer() - 1);
+            }
+
+            if (De100.Lancer() <= 25)
+            {
+                // Le bandit a loot un ours
+                this.AjouterButin("Peau", De3.Lancer());
+                this.AjouterButin("Griffes", De4.Lancer() + 1);
+            }
+
+            if (De100.Lancer() <= 5)
+            {
+                // Le bandit a loot un dragonnet
+                this.AjouterButin("Ailes", 2);
+            }
+        }
+
         public override void SubitDegats(int degats)
         {
             base.SubitDegats(degats); //on déclenche la méthode du parent pour que les dégats s'appliquent

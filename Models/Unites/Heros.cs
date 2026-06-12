@@ -13,6 +13,8 @@ namespace Models.Unites
         public Dictionary<string, int> Butin { get; private set; }
 
 
+        // Le constructeur "Hero" n'a pas besoin de faire « : base() » pour faire référence au ctor de "Personnage"
+        // Car les constructeurs appelent automatique le constructeur parent sans parametre (constructeur par defaut)
         public Heros(string nom)
         {
             this.Nom = nom;
@@ -23,7 +25,6 @@ namespace Models.Unites
                 { "Viande", 0 }
             };
         }
-
 
         public void Loot(Monstre cible)
         {
@@ -56,7 +57,7 @@ namespace Models.Unites
                 }
 
                 // Suppression du butin sur la cible
-                cible.Butin.Remove(typeButin);
+                cible.SupprimerButin(typeButin);
             }
         }
 
