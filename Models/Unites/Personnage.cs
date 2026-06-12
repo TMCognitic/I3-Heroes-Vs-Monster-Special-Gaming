@@ -18,9 +18,14 @@ namespace Models.Unites
     public class Personnage
     {
         // Virtual sert à indiquer que cette propriété peut être réécrite dans les classes enfant
-        public virtual int Force { get; private set; } = 10;
-        public virtual int Endurance { get; private set; } = 10;
-        public int PointDeVie { get; protected set; } = 20;
+        public virtual int Force { get; private set; }
+        public virtual int Endurance { get; private set; }
+
+        // TODO : Refactoring → Limiter la valeur des pdv à la valeur max.
+        public int PointDeVie { get; protected set; }
+
+        // Point de vie maximum calculé dynamiquement (Minimum 6)
+        public int PointDeVieMax => Math.Max((Endurance * 2) - 5, 6);
 
         public bool EstEnVie
         {
@@ -29,6 +34,19 @@ namespace Models.Unites
                 return PointDeVie > 0;
             }
         }
+
+
+        // Constructeur qui initialise les stats
+        public Personnage()
+        {
+            // Comme il n'y pas de conflit de nom de variable, le mot clef "this" est optionnel ;)
+            Force = 13;
+            Endurance = 13;
+
+            // Comme "PointDeVieMax" se base endurance, celui-ci doit être initialiser après "Endurance"
+            PointDeVie = PointDeVieMax;
+        }
+
 
         public void Frappe(Personnage cible)
         {
@@ -53,6 +71,8 @@ namespace Models.Unites
 
             // TODO error
         }
+
+
 
         protected int CalculBonus(int stat)
         {

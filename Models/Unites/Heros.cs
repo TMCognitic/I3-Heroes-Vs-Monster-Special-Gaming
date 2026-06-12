@@ -57,10 +57,10 @@ namespace Models.Unites
             // TODO : Peut-être envisager des PV Max au dessus desquels on ne peut pas remonter, ici on va mettre 20 en dur
 
             Console.WriteLine("🛌🏻 Votre héros se repose...");
-            // Si en récupérent 10, je passe au dessus des 20, on ajoute plutôt les PV manquants
-            if (PointDeVie + 10 > 20)
+            // Si en récupérent 10, je passe au dessus des 20... Bah t'as le max :o
+            if (PointDeVie + 10 > PointDeVieMax)
             {
-                PointDeVie += (20 - PointDeVie);
+                PointDeVie = PointDeVieMax;
             }
             // Sinon, on peut rajouter 10
             else
@@ -95,15 +95,7 @@ namespace Models.Unites
 
                 // TODO Peut être voir pour valeur MaxPV
                 // Il regagne le max qu'il peut ou 5 pv
-                if (PointDeVie + 5 > 20)
-                {
-                    PointDeVie += (20 - PointDeVie);
-                }
-                else
-                {
-                    PointDeVie += 5;
-                }
-
+                PointDeVie = Math.Min(PointDeVie + 5, PointDeVieMax);
             }
             else
             {
@@ -119,15 +111,9 @@ namespace Models.Unites
                 }
                 else
                 {
-                    // On regagne le max qu'on peut ou la récup
-                    if (PointDeVie + recuperation > 20)
-                    {
-                        PointDeVie += 20 - PointDeVie;
-                    }
-                    else
-                    {
-                        PointDeVie += recuperation;
-                    }
+                    // On regagne des points de vie limité à notre maximum
+                    Console.WriteLine("Votre héro a trouvé se viande exceptionnel 🤩");
+                    PointDeVie = Math.Min(PointDeVie + recuperation, PointDeVieMax);
                 }
             }
         }

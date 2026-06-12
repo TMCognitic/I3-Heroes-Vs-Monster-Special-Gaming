@@ -154,6 +154,10 @@ Régle de génération des statistiques
 - Premier temps : Définir la force et l'endurance à la valeur 13 (Dans le ctor)
 - Version final : Simuler un lancer de 4 Dé 6, et prendre les 3 meilleurs
 
+Regle pour la gestion des point de vie
+- Le nombre de pdv maximum d'un personnage est calculé via la formule suivante `(Endurance * 2) - 5`.
+- Le nombre de pdv maximum sera toujours au minimum de 6 _(Exemple: une efle de endurance de 4 → Pdv max 6 quand meme)_.
+
 Régle de génération du nombre de butin
 - Peau : Dé 3
 - Crocs : Dé 3 - 1
