@@ -5,22 +5,30 @@ namespace Models.Unites
     public class Heros : Personnage
     {
         // On va déplacer Name qui était dans Personnage dans Heros : il n'y a que nos héros qui auront un petit nom
-        public string Nom { get; set; }
+        public string Nom { get; init; }
 
         // On va créer un dictionnaire pour les Butins avec comme clef le type de butin et comme valeur 0 pour le héro, puisqu'il commence avec aucun butin
         // - Initialisation avec uniquement les clefs "obligatoire" (or, repas)
         // - Les autres clefs seront ajouter dynamiquement lors du loot
-        public Dictionary<string, int> Butin { get; set; } = new()
+        public Dictionary<string, int> Butin { get; private set; }
+
+
+        public Heros(string nom)
         {
-            { "Or", 0 },
-            { "Repas", 0 },
-            { "Viande", 0 }
-        };
+            this.Nom = nom;
+            this.Butin = new()
+            {
+                { "Or", 0 },
+                { "Repas", 0 },
+                { "Viande", 0 }
+            };
+        }
+
 
         public void Loot(Monstre cible)
         {
             // Test de garde
-            if(cible.EstEnVie)
+            if (cible.EstEnVie)
             {
                 // TODO Erreur : la créature doit être mouru
                 return;
@@ -28,7 +36,7 @@ namespace Models.Unites
 
             // Rappel : Vous ne pouvez pas modifier la collection dans une boucle "foreach"
             // On parcours les butins
-            while(cible.HasLoot)
+            while (cible.HasLoot)
             {
                 // Le butin qu'on récupere
                 KeyValuePair<string, int> butin = cible.Butin.First();
@@ -36,7 +44,7 @@ namespace Models.Unites
                 int valeurButin = butin.Value;
 
                 // Rappel : le mot clef "this" represente l'instance actuelle
-                if(this.Butin.ContainsKey(typeButin))
+                if (this.Butin.ContainsKey(typeButin))
                 {
                     // Si on possede deja le type de butin, on augemente sa valeur
                     this.Butin[typeButin] += valeurButin;

@@ -27,5 +27,7 @@ namespace Models.Unites.Jouables
                 return Math.Max(tempForce, 1);
             }
         }
+
+        public Elfe(string nom) : base(nom) { }
     }
 }

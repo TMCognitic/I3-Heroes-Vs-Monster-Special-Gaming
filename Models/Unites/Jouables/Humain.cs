@@ -14,5 +14,8 @@ namespace Models.Unites.Jouables
         }
         // 👇🏻 Équivalent en écriture raccourcie de ce qu'on a fait au dessus 👆🏻
         public override int Endurance => base.Endurance + 1;
+
+
+        public Humain(string nom) : base(nom) { }
     }
 }
