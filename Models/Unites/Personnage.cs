@@ -16,7 +16,7 @@ namespace Models.Unites
      */
 
 
-    public class Personnage
+    public abstract class Personnage
     {
         // Virtual sert à indiquer que cette propriété peut être réécrite dans les classes enfant
         public virtual int Force { get; private set; }
@@ -28,6 +28,7 @@ namespace Models.Unites
         // Point de vie maximum calculé dynamiquement (Minimum 6)
         public int PointDeVieMax => Math.Max((Endurance * 2) - 5, 6);
 
+        // Proprieté calculer sur base de PointDeVie
         public bool EstEnVie
         {
             get
@@ -35,6 +36,9 @@ namespace Models.Unites
                 return PointDeVie > 0;
             }
         }
+
+        // Propriété abstraite
+        public abstract string NomAfficher { get; }
 
 
         // Set de dé du personnage

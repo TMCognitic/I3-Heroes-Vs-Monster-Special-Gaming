@@ -2,10 +2,12 @@
 
 namespace Models.Unites
 {
-    public class Heros : Personnage
+    public abstract class Heros : Personnage
     {
         // On va déplacer Name qui était dans Personnage dans Heros : il n'y a que nos héros qui auront un petit nom
         public string Nom { get; init; }
+
+        public override string NomAfficher => $"{this.GetType().Name} {Nom}";
 
         // On va créer un dictionnaire pour les Butins avec comme clef le type de butin et comme valeur 0 pour le héro, puisqu'il commence avec aucun butin
         // - Initialisation avec uniquement les clefs "obligatoire" (or, repas)

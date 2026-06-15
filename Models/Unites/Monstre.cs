@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Models.Unites
 {
-    public class Monstre : Personnage
+    public abstract class Monstre : Personnage
     {
         // Propriété qui permet de savoir si le monstre possede du butin
         public bool HasLoot
@@ -14,11 +14,13 @@ namespace Models.Unites
         }
         // public bool HasLoot => Butin.Any();
 
+
         // Constructeur qui initialise le butin des monstres
         public Monstre()
         {
             _InternalButin = new();
         }
+
 
         // Gestion du butin
         // - (Privé) Dico avec les méthodes de mutations (Add, Remove, ...)
@@ -65,6 +67,10 @@ namespace Models.Unites
                 _InternalButin.Add(nomDuButin, quantite);
             }
         }
+
+
+        // Méthode abstraite pour obtenir le text d'introduction
+        public abstract string ObtenirTexteIntro();
 
     }
 }

@@ -9,6 +9,8 @@ namespace Models.Unites.Monstres
         public override int Endurance => base.Endurance + 5;
         public override int Force => base.Force + 1;
 
+        public override string NomAfficher => "Un dragonnet tout mignon 🐲";
+
         public Dragonnet()
         {
             this.AjouterButin("Peau", De3.Lancer());
@@ -18,6 +20,11 @@ namespace Models.Unites.Monstres
             {
                 this.AjouterButin("Ailes", 2);
             }
+        }
+
+        public override string ObtenirTexteIntro()
+        {
+            return "Le dragonnet glisse sur sa propre queue et rugit… en couinant";
         }
     }
 }
