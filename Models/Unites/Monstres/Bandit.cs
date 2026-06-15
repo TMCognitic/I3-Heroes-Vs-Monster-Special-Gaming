@@ -53,7 +53,7 @@ namespace Models.Unites.Monstres
                 Console.WriteLine("🧪 Le bandit tente de prendre une potion...");
                 De De100 = new(100);
 
-                if(De100.Lancer() == 11)
+                if(De100.Lancer() >= 33)
                 {
                     Console.WriteLine("... et récupère 5 PV");
                     PointDeVie += 5;

@@ -172,6 +172,16 @@ NB : Adapté ou commenté le code de test des classes dans program.cs
 ---
 
 ### Polymorphisme
+Dans une nouvelle app console : 
+- Mise en place une liste de Monstre (avec une 15e de monstre aleatoire)
+- Mise en place d'un "arene de combat"
+  - Combat avec un monstre
+  - Tous les 3 combats, il cuisine
+  - Tous les 5 combats, il se repose
+  - Apres un combat, si moins de 15pdv, le hero mange
+- L'arene se termine : 
+  - Le hero a vaincu les monstres (Affiche un résumé)
+  - Le héro est mouru. Affiche le monstre qui l'a achevé
 
 ---
 
