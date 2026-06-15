@@ -151,7 +151,7 @@ Définir sur toutes les classes (Sauf « Plateau ») du projet « Models » des 
     _Le nombre de chaque butin est généré aleatoirement._
 
 Régle de génération des statistiques 
-- Premier temps : Définir la force et l'endurance à la valeur 13 (Dans le ctor)
+- Définir la force et l'endurance à la valeur 13 (Dans le ctor)
 - Version final : Simuler un lancer de 4 Dé 6, et prendre les 3 meilleurs
 
 Regle pour la gestion des point de vie
@@ -202,6 +202,11 @@ Modifier le code pour
 ---
 
 ### Les classes statiques
+Rendre les statistiques des personnes aleatoire.
+
+Outil de génération des statistiques 
+- Simuler un lancer de 4 Dé 6, et prendre les 3 meilleurs.
+- Cette outil doit être une classe statique.
 
 ---
 

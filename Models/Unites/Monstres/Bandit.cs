@@ -64,6 +64,7 @@ namespace Models.Unites.Monstres
             this.AjouterButin("Or", De100.Lancer());
             this.AjouterButin("Repas", De3.Lancer());
             this.AjouterButin("Viande", De6.Lancer());
+            this.AjouterButin("Potion", 2);
 
             if (De100.Lancer() <= 50)
             {
@@ -90,7 +91,7 @@ namespace Models.Unites.Monstres
         {
             base.SubitDegats(degats); //on déclenche la méthode du parent pour que les dégats s'appliquent
 
-            if (PointDeVie < 5)
+            if (PointDeVie < 5 && this.Butin.Any(b => b.Key == "Potion"))
             {
                 Console.WriteLine("🧪 Le bandit tente de prendre une potion...");
                 De De100 = new(100);
@@ -105,6 +106,7 @@ namespace Models.Unites.Monstres
                 {
                     Console.WriteLine("... et la fait tomber au sol.");
                 }
+                this.DiminuerButin("Potion", 1); 
             }
         }
 

@@ -40,13 +40,24 @@ Console.WriteLine("Quel sera votre nom ?");
 Console.Write("> ");
 string nomHero = Console.ReadLine()!;
 
-Heros hero = (choixHero == 1) ? new Humain(nomHero)
+bool choixValidation;
+Heros hero;
+do
+{
+    hero = (choixHero == 1) ? new Humain(nomHero)
         : (choixHero == 2) ? new Elfe(nomHero)
         : new Nain(nomHero);
+
+    Console.WriteLine($"Stats du personnage : {hero.Force} Force, {hero.Endurance} End, {hero.PointDeVieMax} Pdv");
+    Console.WriteLine("Pret pour l'aventure (y / N)");
+    Console.Write("> ");
+    choixValidation = Console.ReadLine()?.ToLower() == "y";
+}
+while (!choixValidation);
 #endregion
 
 #region Arene de combat !
-List<Personnage> cimetiere = [];
+List < Personnage > cimetiere = [];
 Monstre? attaquant = null;
 Console.Clear();
 for(int tour = 1; hero.EstEnVie && monstres.Any(); tour++)

@@ -68,6 +68,20 @@ namespace Models.Unites
             }
         }
 
+        protected void DiminuerButin(string nomDuButin, int quantite)
+        {
+            if(quantite <=0) return;
+
+            if (this.Butin[nomDuButin] > 1)
+            {
+                this._InternalButin[nomDuButin]--;
+            }
+            else
+            {
+                this.SupprimerButin(nomDuButin);
+            }
+        }  
+
 
         // Méthode abstraite pour obtenir le text d'introduction
         public abstract string ObtenirTexteIntro();

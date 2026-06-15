@@ -53,8 +53,8 @@ namespace Models.Unites
         public Personnage()
         {
             // Comme il n'y pas de conflit de nom de variable, le mot clef "this" est optionnel ;)
-            Force = 13;
-            Endurance = 13;
+            Force = StatsGenerator.GenerateStatistique();
+            Endurance = StatsGenerator.GenerateStatistique();
 
             // Comme "PointDeVieMax" se base endurance, celui-ci doit être initialiser après "Endurance"
             PointDeVie = PointDeVieMax;

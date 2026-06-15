@@ -23,7 +23,7 @@ namespace Models.Unites
             this.Butin = new()
             {
                 { "Or", 0 },
-                { "Repas", 0 },
+                { "Repas", 3 },
                 { "Viande", 0 }
             };
         }
