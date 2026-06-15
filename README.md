@@ -185,6 +185,26 @@ Dans une nouvelle app console :
 
 ---
 
+### Les classes abstraites
+Definir les classes qui seront abstraite ?
+
+Modifier le code pour
+- Chaque personnage à un nom afficher
+  _La modification doit être futur proof (Exemple : Arrivé de marchant)_
+  - Hero : <Type_Hero> <Nom> 
+  - Monstre : <Type_monstre>
+ 
+- Les monstres ont un texte d'introduction
+  - Le loup et l'ours ont un crie
+  - La dragonnet essais de craché du feu
+  - Le bandit insulte (gentillement) le hero
+
+---
+
+### Les classes statiques
+
+---
+
 ### Interfaces
 
 ---
