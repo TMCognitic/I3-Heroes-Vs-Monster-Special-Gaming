@@ -109,7 +109,7 @@ Les montres peuvent posséder du butin _(A initialiser dans dans programme.cs)_ 
 Les monstres possèdent également des bonus et malus : 
 - Loup : Pas de bonus, ni de malus.
 - Ours : Bonus de +2 en force
-- Dragonnet : Bonus de protection (Armure) de 5 et bonus de force de +1
+- Dragonnet : Bonus de protection (Armure) de 5 et bonus de force de -3
 - Bandit : Bonus +3 force et malus -2 en endurance
 
 BONUS : Modification de la classe « Personnage »

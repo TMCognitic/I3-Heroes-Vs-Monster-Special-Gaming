@@ -85,20 +85,20 @@ for(int tour = 1; hero.EstEnVie && monstres.Any(); tour++)
     // Action de fin de tour
     if(hero.EstEnVie)
     {
-        Console.WriteLine($"{hero.NomAfficher} fête victiore !");
+        Console.WriteLine($"{hero.NomAfficher} fête sa victiore !");
         hero.Loot(attaquant);
 
-        if(tour % 3 == 0)
+        if(tour % 5 == 0)
         {
             hero.Cuisiner();
         }
-        if ((tour / 5) * 5 == tour)
-        {
-            hero.SeReposer();
-        }
-        if(hero.PointDeVie < 15)
+        if (hero.PointDeVie <= (hero.PointDeVieMax / 2))
         {
             hero.Manger();
+        }
+        if ((tour / 2) * 2 == tour)
+        {
+            hero.SeReposer();
         }
 
         // On retire le monstre
