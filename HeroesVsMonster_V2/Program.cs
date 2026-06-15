@@ -23,6 +23,7 @@ for (int i = 0; i < NB_MONSTRE; i++)
         : new Dragonnet();
 
     monstres.Add(m);
+    Console.WriteLine($" - {m.NomAfficher}");
 }
 Console.WriteLine("Les monstres vous attendent 🐺");
 Console.ReadLine();
@@ -54,7 +55,8 @@ for(int tour = 1; hero.EstEnVie && monstres.Any(); tour++)
     attaquant = monstres.First();
 
     // Combat
-    Console.WriteLine($"Un combat commence contre {attaquant.GetType().Name}");
+    Console.WriteLine($"Un combat commence contre {attaquant.NomAfficher} !");
+    Console.WriteLine($" « {attaquant.ObtenirTexteIntro()} » ");
     bool initiativeHero = true;
     while(hero.EstEnVie && attaquant.EstEnVie)
     {
@@ -72,7 +74,7 @@ for(int tour = 1; hero.EstEnVie && monstres.Any(); tour++)
     // Action de fin de tour
     if(hero.EstEnVie)
     {
-        Console.WriteLine("Le héro fête victiore !");
+        Console.WriteLine($"{hero.NomAfficher} fête victiore !");
         hero.Loot(attaquant);
 
         if(tour % 3 == 0)
