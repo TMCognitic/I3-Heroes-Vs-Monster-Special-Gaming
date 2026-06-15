@@ -220,6 +220,21 @@ Outil de génération des statistiques
 
 ### Exceptions
 
+#### Declancher une erreur si
+- Un personnage subit des degats negatifs
+- Le hero loot un monstre encore vivant
+- Création d'un dé impossible (- de 2 face)
+
+Remarque : 
+- Version initial : Envoyer une erreur « Exception » avec un message
+- Version final   : _A voir avec Aude :p_
+
+#### Traiter une erreur (try...catch)
+Encapsuler le code « HereosVsMonster_v2 » pour traiter les erreurs.
+Si une erreur à lieu, afficher : « Erreur : <message> !!! » 
+
+
+
 ---
 
 ### Génériques
