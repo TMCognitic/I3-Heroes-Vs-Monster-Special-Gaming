@@ -220,15 +220,15 @@ Créer un plateau de 20 x 20 rempli de "_"
 Créer les interfaces suivantes :
 
 * **IPositionnable** qui permet d'indiquer qu'un personnage est positionnable sur un plateau (ils le sont tous). Un personnage positionnable possède une **coordonnée en X**, **une coordonnée en Y**, un **symbole** à afficher (H, N, E, L etc...).
-  > Il faudra modifier le constructeur des monstres pour génèrer aléatoirement les positions 
+> Il faudra modifier le constructeur des monstres pour génèrer aléatoirement les positions 
 
-  > Il faudra modifier le constructeur des héros pour mettre les positions en 0,0 
+> Il faudra modifier le constructeur des héros pour mettre les positions en 0,0 
 
-  > [!WARNING]
-  > (Attention à ne pas créer en dehors du plateau)
+> [!WARNING]
+> (Attention à ne pas créer en dehors du plateau)
 
-  > [!INFO]
-  > Plusieurs monstres peuvent se retrouver avec les mêmes coordonnées. On ne gèrera pas ça pour l'instant, on ne les verra juste pas sur la carte.
+> [!NOTE]
+> Plusieurs monstres peuvent se retrouver avec les mêmes coordonnées. On ne gèrera pas ça pour l'instant, on ne les verra juste pas sur la carte.
 
 * **IDeplacable** qui permet d'indiquer si un personnage peut se déplacer sur la carte. Il possède alors une valeur de **déplacement max** (ex : MaxDeplacement qui vaut 1 ou 2) et une **fonction SeDeplacer**(int tailleMaxPlateau) pour modifier les coordonnées X et Y du personnage.
   - Pour les héros, ils se déplacent tous de 1 case à la fois.
