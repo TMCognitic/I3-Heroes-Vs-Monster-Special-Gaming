@@ -224,10 +224,10 @@ Créer les interfaces suivantes :
 
   > Il faudra modifier le constructeur des héros pour mettre les positions en 0,0 
 
-  > [!Warning]
+  > [! Warning]
   > (Attention à ne pas créer en dehors du plateau)
 
-  > [!Info]
+  > [! Info]
   > Plusieurs monstres peuvent se retrouver avec les mêmes coordonnées. On ne gèrera pas ça pour l'instant, on ne les verra juste pas sur la carte.
 
 * **IDeplacable** qui permet d'indiquer si un personnage peut se déplacer sur la carte. Il possède alors une valeur de **déplacement max** (ex : MaxDeplacement qui vaut 1 ou 2) et une **fonction SeDeplacer**(int tailleMaxPlateau) pour modifier les coordonnées X et Y du personnage.
@@ -252,7 +252,7 @@ Créer les interfaces suivantes :
 - On fait se **déplacer les monstres**
 - On met à jour l'**affichage** du plateau
 
-> [!Tips]
+> [! Tips]
 > Vous pouvez, entre chaque tour, effectuer un Console.Clear() pour réactualiser le plateau.
 
 ---
