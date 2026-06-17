@@ -255,5 +255,8 @@ Si une erreur à lieu, afficher : « Erreur : <message> !!! »
 ## Namespace, Encaplusations, Indexeurs
 [Demo Phil](https://github.com/phil-bstorm/C_sharp_POO-i3-gamedev6)
 
-## Héritage, Indexeurs
+## Héritage, Indexeurs, Polymorphisme, Constructeur, Classes Abstraites, Classes Statiques, Errors
 [Demo Aurélien](https://github.com/FormCours/I3_Game__POO__Demo)
+
+## Interfaces
+[Demo Aude](https://gitlab.com/audebstorm/i3_2026_game_csharpoo_demo_interface)
