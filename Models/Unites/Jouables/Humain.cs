@@ -16,6 +16,9 @@ namespace Models.Unites.Jouables
         public override int Endurance => base.Endurance + 1;
 
 
-        public Humain(string nom) : base(nom) { }
+        public Humain(string nom) : base(nom) 
+        {
+            Symbol = 'H';
+        }
     }
 }

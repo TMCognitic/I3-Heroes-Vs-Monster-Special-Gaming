@@ -12,8 +12,10 @@ namespace Models.Unites.Monstres
 
         public override string NomAfficher => "Un dragonnet tout mignon 🐲";
 
-        public Dragonnet()
+        public Dragonnet(int taille) : base(taille)
         {
+            Symbol = 'D';
+
             this.Armure = 5;
             this.AjouterButin("Peau", De3.Lancer());
             this.AjouterButin("Or", De100.Lancer());

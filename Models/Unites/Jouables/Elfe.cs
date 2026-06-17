@@ -28,6 +28,9 @@ namespace Models.Unites.Jouables
             }
         }
 
-        public Elfe(string nom) : base(nom) { }
+        public Elfe(string nom) : base(nom) 
+        {
+            Symbol = 'E';
+        }
     }
 }

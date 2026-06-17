@@ -8,6 +8,9 @@ namespace Models.Unites.Jouables
     {
         public override int Endurance => base.Endurance + 2;
 
-        public Nain(string nom) : base(nom) { }
+        public Nain(string nom) : base(nom) 
+        {
+            Symbol = 'N';
+        }
     }
 }

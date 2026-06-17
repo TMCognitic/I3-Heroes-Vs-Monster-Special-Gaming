@@ -8,14 +8,10 @@ namespace Models.Core
 {
     public class Plateau
     {
-        public const int TAILLE = 11;
+       
+        //Transformation de la const TAILLE en prop Taille
+        public int Taille { get; private set; }
 
-        public int Taille { 
-            get
-            {
-                return TAILLE;
-            }
-        }
 
         /* RAPEL TABLEAU */
         //private int[] tabUneDimension = new int[TAILLE];
@@ -29,13 +25,19 @@ namespace Models.Core
         
         mat[y, x]
          */
-        private string[,] _Grille = new string[TAILLE, TAILLE];
+        private string[,] _Grille; 
 
+        // Ajout d'un constructeur où on initialise la taille du plateau avec donnée reçue lors de la construction et initialisation de la grille avec la taille
+        public Plateau(int taille)
+        {
+            Taille = taille;
+            _Grille = new string[Taille, Taille];
+        }
         public string this[int y, int x]
         {
             get
             {
-                if(x < 0 || y < 0 || x > TAILLE || y > TAILLE)
+                if(x < 0 || y < 0 || x > Taille || y > Taille)
                 {
                     // todo error
                 }
@@ -45,7 +47,7 @@ namespace Models.Core
 
             set
             {
-                if (x < 0 || y < 0 || x > TAILLE || y > TAILLE)
+                if (x < 0 || y < 0 || x > Taille || y > Taille)
                 {
                     // todo error
                 }

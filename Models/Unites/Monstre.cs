@@ -16,9 +16,11 @@ namespace Models.Unites
 
 
         // Constructeur qui initialise le butin des monstres
-        public Monstre()
+        public Monstre(int taillePlateau)
         {
             _InternalButin = new();
+            PositionX = Random.Shared.Next(0, taillePlateau);
+            PositionY = Random.Shared.Next(0, taillePlateau);
         }
 
 

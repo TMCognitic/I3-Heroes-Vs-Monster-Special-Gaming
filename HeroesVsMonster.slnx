@@ -4,6 +4,7 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="HeroesVsMonster/HeroesVsMonster.csproj" />
+  <Project Path="HeroesVSMonsters_V3/HeroesVSMonsters_V3.csproj" Id="57a5257c-7f83-4aca-bffa-192d34f8782d" />
   <Project Path="HeroesVsMonster_V2/HeroesVsMonster_V2.csproj" Id="76f01fc9-900d-40d3-83e7-76e3c49232d5" />
   <Project Path="Models/Models.csproj" Id="b581a26f-5842-4765-82a7-2cd7aa806569" />
 </Solution>

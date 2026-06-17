@@ -1,4 +1,5 @@
-﻿using Models.Outils;
+﻿using Models.Interfaces;
+using Models.Outils;
 using Models.Unites.Monstres;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Models.Unites
      */
 
 
-    public abstract class Personnage
+    public abstract class Personnage : IPositionnable
     {
         // Virtual sert à indiquer que cette propriété peut être réécrite dans les classes enfant
         public virtual int Force { get; private set; }
@@ -47,6 +48,12 @@ namespace Models.Unites
         private protected De De4 { get; init; }
         private protected De De6 { get; init; }
         private protected De De100 { get; init; }
+
+        public int PositionX { get; protected set; }
+
+        public int PositionY { get; protected set; }
+
+        public char Symbol {  get; protected set; }
 
 
         // Constructeur qui initialise les stats

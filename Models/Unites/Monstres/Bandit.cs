@@ -1,11 +1,12 @@
-﻿using Models.Outils;
+﻿using Models.Interfaces;
+using Models.Outils;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Models.Unites.Monstres
 {
-    public class Bandit : Monstre
+    public class Bandit : Monstre, IDeplacable
     {
         private readonly List<string> _Insultes = [
             "Hé toi, tas de bravoure mal recyclée !",
@@ -59,8 +60,13 @@ namespace Models.Unites.Monstres
 
         public override string NomAfficher => "Un bandit !";
 
-        public Bandit()
+        public int MaxDeplacement => 1;
+
+        public Bandit(int taille) : base(taille)
         {
+            {
+            Symbol = 'B';
+
             this.AjouterButin("Or", De100.Lancer());
             this.AjouterButin("Repas", De3.Lancer());
             this.AjouterButin("Viande", De6.Lancer());
@@ -85,6 +91,7 @@ namespace Models.Unites.Monstres
                 // Le bandit a loot un dragonnet
                 this.AjouterButin("Ailes", 2);
             }
+        }
         }
 
         public override void SubitDegats(int degats)
@@ -117,5 +124,44 @@ namespace Models.Unites.Monstres
             return _Insultes[indiceInsulte];
         }
 
+        public void SeDeplacer(int tailleMaxPlateau)
+        {
+            int deplacementX = Random.Shared.Next(-MaxDeplacement, MaxDeplacement + 1);
+            int deplacementY = Random.Shared.Next(-MaxDeplacement, MaxDeplacement + 1);
+
+            // Si avec le déplacement (s'il est négatif) on arrive en dessous de 0)
+            if (PositionX + deplacementX < 0)
+            {
+                // On enlève que ce qui est possible d'enlever
+                PositionX -= deplacementX + PositionX;
+            }
+            // Sinon si avec le déplacement (positif) on arrive à la taille max du plateau
+            else if (PositionX + deplacementX > tailleMaxPlateau - 1)
+            {
+                // On ajoute que ce qui est possible d'ajouter
+                PositionX += tailleMaxPlateau - PositionX;
+            }
+            else
+            {
+                // Sinon c'est bon, on peut ajouter/enlever ce qu'on veut
+                PositionX += deplacementX;
+            }
+
+            // Même logique d'au dessus mais pour les Y
+            if (PositionY + deplacementY < 0)
+            {
+                PositionY -= deplacementY + PositionY;
+            }
+            else if (PositionY + deplacementY > tailleMaxPlateau - 1)
+            {
+                PositionY += (tailleMaxPlateau - 1) - PositionY;
+            }
+            else
+            {
+                PositionY += deplacementY;
+            }
+
+
+        }
     }
 }

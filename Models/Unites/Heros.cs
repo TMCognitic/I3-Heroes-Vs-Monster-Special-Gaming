@@ -1,8 +1,10 @@
 ﻿
 
+using Models.Interfaces;
+
 namespace Models.Unites
 {
-    public abstract class Heros : Personnage
+    public abstract class Heros : Personnage, IDeplacable
     {
         // On va déplacer Name qui était dans Personnage dans Heros : il n'y a que nos héros qui auront un petit nom
         public string Nom { get; init; }
@@ -13,6 +15,8 @@ namespace Models.Unites
         // - Initialisation avec uniquement les clefs "obligatoire" (or, repas)
         // - Les autres clefs seront ajouter dynamiquement lors du loot
         public Dictionary<string, int> Butin { get; private set; }
+
+        public int MaxDeplacement => 1;
 
 
         // Le constructeur "Hero" n'a pas besoin de faire « : base() » pour faire référence au ctor de "Personnage"
@@ -26,6 +30,10 @@ namespace Models.Unites
                 { "Repas", 3 },
                 { "Viande", 0 }
             };
+
+            // On initialise les positions des Hero à 0
+            PositionX = 0;
+            PositionY = 0;
         }
 
         public void Loot(Monstre cible)
@@ -129,5 +137,39 @@ namespace Models.Unites
             }
         }
 
+        public void SeDeplacer(int tailleMaxPlateau)
+        {
+            ConsoleKeyInfo keyPressed = Console.ReadKey();
+            switch(keyPressed.Key) 
+            {
+                case ConsoleKey.UpArrow:
+                    if(PositionY > 0)
+                    {
+                        PositionY-= MaxDeplacement;
+                    }
+                    break;
+                case ConsoleKey.DownArrow:
+                    if(PositionY < tailleMaxPlateau - 1)
+                    {
+                        PositionY+= MaxDeplacement;
+                    }
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if(PositionX > 0)
+                    {
+                        PositionX-=MaxDeplacement;
+                    }
+                    break;
+                case ConsoleKey.RightArrow:
+                    if(PositionX < tailleMaxPlateau - 1)
+                    {
+                        PositionX+=MaxDeplacement;
+                    }
+                    break;
+
+                //TODO rajouter les autres touches pour manger/cuisiner/récupérer etc
+        
+        }
+    }
     }
 }
