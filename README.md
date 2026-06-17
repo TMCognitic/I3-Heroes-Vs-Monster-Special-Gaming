@@ -211,6 +211,49 @@ Outil de génération des statistiques
 ---
 
 ### Interfaces
+Dans un nouveau projet console (HeroesVSMonsters_V3) 
+
+#### Plateau de jeu
+Créer un plateau de 20 x 20 rempli de "_"
+
+#### Personnages
+Créer les interfaces suivantes :
+
+* **IPositionnable** qui permet d'indiquer qu'un personnage est positionnable sur un plateau (ils le sont tous). Un personnage positionnable possède une **coordonnée en X**, **une coordonnée en Y**, un **symbole** à afficher (H, N, E, L etc...).
+  > Il faudra modifier le constructeur des monstres pour génèrer aléatoirement les positions 
+
+  > Il faudra modifier le constructeur des héros pour mettre les positions en 0,0 
+
+  > [!Warning]
+  > (Attention à ne pas créer en dehors du plateau)
+
+  > [!Info]
+  > Plusieurs monstres peuvent se retrouver avec les mêmes coordonnées. On ne gèrera pas ça pour l'instant, on ne les verra juste pas sur la carte.
+
+* **IDeplacable** qui permet d'indiquer si un personnage peut se déplacer sur la carte. Il possède alors une valeur de **déplacement max** (ex : MaxDeplacement qui vaut 1 ou 2) et une **fonction SeDeplacer**(int tailleMaxPlateau) pour modifier les coordonnées X et Y du personnage.
+  - Pour les héros, ils se déplacent tous de 1 case à la fois.
+  - Pour les monstres : Le loup se déplace de 2 cases max, le bandit et l'ours d'1 case max et le dragonnet ne peut pas se déplacer.
+
+> Pour le **déplacement des monstres**, on fera une valeur aléatoire entre -maxDeplacement et le maxDeplacement autorisé (ex: si maxDeplacement = 1, valeurs possibles sont -1 0 1).\
+> (Attention, il faudra vérifier si le déplacement est autorisé (si on n'a pas atteint le bord du plateau))
+
+> Pour le **déplacement du joueur**, on demande à l'utilisateur dans quelle direction il souhaite aller (Gauche, Droite, Haut, Bas) et on change ses positions en fonction du choix.\
+> (Attention à ne pas sortir du plateau)
+
+### Mise en place jeu
+* Créer un héro (en demandant à l'utiliseur lequel il souhaite jouer)
+
+* Créer une liste aléatoire de 10 monstres.
+
+* Placer le tout sur le plateau (H pour Humain, N pour Nain, E pour Elfe, L pour Loup, B pour Bandit, O pour Ours et D pour Dragonnet) 
+
+À chaque tour de jeu :
+- On **déplace le héro** (hint : Console.ReadKey())
+- On fait se **déplacer les monstres**
+- On met à jour l'**affichage** du plateau
+
+> [!Tips]
+> Vous pouvez, entre chaque tour, effectuer un Console.Clear() pour réactualiser le plateau.
 
 ---
 
